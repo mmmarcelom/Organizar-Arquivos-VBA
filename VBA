@@ -1,0 +1,158 @@
+
+Private Sub btnListarArquivos_Click()
+
+Dim objFSO As Object
+Dim objFile As Object
+Dim objFolder As Object
+Dim objSubFolder As Object
+
+Dim i As Integer
+i = 2
+
+frmUtilitario_v1_0.Hide
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFolder = objFSO.GetFolder(ActiveWorkbook.Path)
+
+For Each objFile In objFolder.Files
+    On Error Resume Next
+    
+    If InStr(1, objFile.Name, ActiveWorkbook.Name) = 0 Then
+        Cells(i, 1) = Left(objFile.Path, Len(objFile.Path) - Len(objFile.Name))
+        Cells(i, 2) = objFile.Name
+        i = i + 1
+    End If
+Next objFile
+
+End Sub
+
+Private Sub btnListarPastas_Click()
+
+Dim objFSO As Object
+Dim objFolder As Object
+Dim objSubFolder As Object
+
+Dim i As Integer
+
+frmUtilitario_v1_0.Hide
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFolder = objFSO.GetFolder(ActiveWorkbook.Path)
+
+i = 2
+
+For Each objSubFolder In objFolder.SubFolders
+
+    Cells(i, 1) = objFolder.Path & "\"
+    Cells(i, 2) = objSubFolder.Name
+    
+    i = i + 1
+
+Next objSubFolder
+
+End Sub
+
+Private Sub btnOrganizar_Click()
+
+Dim Linha As Integer
+Dim PriLinha As Integer
+Dim UItLinha As Integer
+
+PriLinha = 2
+UItLinha = Cells(Rows.Count, 2).End(xlUp).Row
+
+Dim NomeAntigo As String
+Dim NovoNome As String
+
+For Linha = PriLinha To UItLinha
+    On Error Resume Next
+
+    NomeAntigo = Cells(Linha, 1) & Cells(Linha, 2)
+    NovoNome = Cells(Linha, 1) & Cells(Linha, 3)
+    
+    'Pasta existe?
+    If Len(Dir(NovoNome, vbDirectory)) = 0 Then 'checa se a pasta já existe e ...
+        MkDir NovoNome '... cria a pasta
+    End If
+    
+    NovoNome = NovoNome & "\" & Cells(Linha, 2)
+    
+    'Se não existir um arquivo com o mesmo nome, move o arquivo
+    If Len(Dir(NovoNome, vbNormal)) = 0 Then
+        Name NomeAntigo As NovoNome
+        Cells(Linha, 4) = "Arquivo movido com sucesso"
+    End If
+    
+Next Linha 'Próxima linha
+
+frmUtilitario_v1_0.Hide
+
+End Sub
+
+Private Sub btnRenomear_Click()
+
+Dim Linha As Integer
+Dim PriLinha As Integer
+Dim UItLinha As Integer
+
+PriLinha = Cells(Rows.Count, 4).End(xlUp).Row + 1
+UItLinha = Cells(Rows.Count, 2).End(xlUp).Row
+
+Dim NomeAntigo As String
+Dim NovoNome As String
+
+For Linha = PriLinha To UItLinha
+    On Error Resume Next
+
+    NomeAntigo = Cells(Linha, 1) & Cells(Linha, 2)
+    NovoNome = Cells(Linha, 1) & Cells(Linha, 3)
+    
+    'Verifica se o nome antigo é igual ao novo nome
+    If NomeAntigo = NovoNome Then
+        Cells(Linha, 4) = "Novo nome é igual ao nome anterior."
+        GoTo ProximaLinha
+    End If
+    
+    'Verifica se já existe um arquivo com esse nome
+    If Dir(NovoNome, vbDirectory) <> "" Or Dir(NovoNome) <> "" Then
+        Cells(Linha, 4) = "Um arquivo ou pasta com esse nome já existe no diretório."
+        GoTo ProximaLinha
+    End If
+    
+    'Renomeia o arquivo
+    Name NomeAntigo As NovoNome
+    Cells(Linha, 4) = "Arquivo renomeado com sucesso"
+
+ProximaLinha:
+Next Linha
+
+frmUtilitario_v1_0.Hide
+
+End Sub
+
+
+Private Sub btnCriarPastas_Click()
+
+Dim Linha As Integer
+Dim PriLinha As Integer
+Dim UItLinha As Integer
+
+PriLinha = 2
+UItLinha = Cells(Rows.Count, 3).End(xlUp).Row
+
+Dim NovoNome As String
+
+For Linha = PriLinha To UItLinha
+
+    NovoNome = Cells(Linha, 1) & Cells(Linha, 3)
+    
+    'Pasta existe?
+    If Len(Dir(NovoNome, vbDirectory)) = 0 Then 'checa se a pasta já existe e ...
+        MkDir NovoNome '... cria a pasta
+    End If
+    
+Next Linha 'Próxima linha
+
+frmUtilitario_v1_0.Hide
+
+End Sub
