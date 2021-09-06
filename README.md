@@ -26,11 +26,13 @@ Fórmulas como ESQUERDA, DIREITA, EXT.TEXTO ajudam bastante.
 
 Também é possível organizar os arquivos conforme os prefixos e sufixos.
 
-Nesse exemplo eu usei: =ESQUERDA(B2;14)
+Nesse exemplo eu usei: 
+
+=ESQUERDA(B2;14)
 
 ![04  Organizar](https://user-images.githubusercontent.com/52570539/132261614-85c27d7f-637f-465b-950b-b1948746dd03.gif)
 
-Voilá
+Voilá. Pode parecer trabalhoso quando estamos falando de poucos arquivos, mas imagine se fossem 300-400 arquivos.
 
 ![06  Organizado](https://user-images.githubusercontent.com/52570539/132261627-28386765-1fb7-4ec7-8864-e19afe408577.jpg)
 
