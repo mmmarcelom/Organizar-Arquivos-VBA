@@ -10,9 +10,15 @@ Basta colocar a planilha na pasta e rodar o script.
 
 ![01  Arquivos](https://user-images.githubusercontent.com/52570539/132261502-ce192258-31dd-4ea9-aeb4-6ce5c2cff2a9.jpg)
 
+Vá até Macros e Exibir Macros (ou aperte Alt+F8).
+
+Execute o macro.
+
 ![02  Listar Arquivos](https://user-images.githubusercontent.com/52570539/132261521-77554b50-6e8e-464a-9f26-e5077b18511e.gif)
 
-Na coluna "Novo Nome" coloque o novo nome do arquivo (fórmulas como esquerda, direita, ext.texto ajudam bastante).
+Na coluna "Novo Nome" coloque o novo nome do arquivo.
+
+Fórmulas como ESQUERDA, DIREITA, EXT.TEXTO ajudam bastante.
 
 ![03  Renomear arquivos](https://user-images.githubusercontent.com/52570539/132261560-87f07cb6-9f7f-43b9-abdf-6175218f8a09.gif)
 
