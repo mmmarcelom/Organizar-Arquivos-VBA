@@ -17,7 +17,8 @@ Na coluna "Novo Nome" coloque o novo nome do arquivo (fórmulas como esquerda, d
 ![03  Renomear arquivos](https://user-images.githubusercontent.com/52570539/132261560-87f07cb6-9f7f-43b9-abdf-6175218f8a09.gif)
 
 Também é possível organizar os arquivos conforme os prefixos e sufixos.
-Nesse exemplo eu usei: =esqueda(B2;14)
+
+Nesse exemplo eu usei: =ESQUERDA(B2;14)
 
 ![04  Organizar](https://user-images.githubusercontent.com/52570539/132261614-85c27d7f-637f-465b-950b-b1948746dd03.gif)
 
