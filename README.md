@@ -14,6 +14,8 @@ Vá até Macros e Exibir Macros (ou aperte Alt+F8).
 
 Execute o macro.
 
+Clique na ação desejada.
+
 ![02  Listar Arquivos](https://user-images.githubusercontent.com/52570539/132261521-77554b50-6e8e-464a-9f26-e5077b18511e.gif)
 
 Na coluna "Novo Nome" coloque o novo nome do arquivo.
